@@ -1,0 +1,54 @@
+    total = models.IntegerField(default = 0)
+    opening = models.IntegerField(default = 0)
+    presentation = models.IntegerField(default = 0)
+    questioning = models.IntegerField(default = 0)
+    impression = models.IntegerField(default = 0)
+    
+    if uim == 'Yes':
+        presentation +=10
+    if daqr == 'Yes':
+        presentation +=10
+    if qr == 'Yes':
+        presentation +=10
+    if us == 'Yes':
+        presentation +=10
+    if sqr5 == 'Yes':
+        presentation +=10
+
+    if ua == 'Yes':
+        impression +=10
+    if ta == 'Yes':
+        impression +=10
+    if un == 'Yes':
+        impression +=10
+
+
+    if asb == 'Yes':
+        questioning += 10
+    if wby == 'Yes':
+        questioning +=10
+    if hmpb == 'Yes':
+        questioning +=10
+    if avdda == 'Yes':
+        questioning += 10
+
+    if ca4r == 'Yes':
+        opening += 5
+    if agu == 'Yes':
+        opening += 5
+    if aph == 'Yes':
+        opening += 5
+    if tyh == 'Yes':
+        opening += 5
+
+
+
+
+
+    if cb30 == 'Yes':
+        total = 100
+    if cb30 == 'No':
+        total = 0
+    if h90 == 'Yes':
+        total = 0
+

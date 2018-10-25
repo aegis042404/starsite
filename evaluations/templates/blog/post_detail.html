@@ -1,0 +1,76 @@
+{% extends 'blog/base.html' %}
+
+{% load staticfiles %}
+{% block content %}
+    <div class="post">
+<!--testing mp3 play -->
+<!--{% if user.is_authenticated %}
+     <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+{% endif %}-->
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.month }} {{ post.hotel_name }} {{ post.call_choices }}</a></h1> 
+        {% if post.published_date %}
+
+<!--testing mp3 play -->
+
+<p>
+<audio 
+controls
+       
+
+       src="{{post.newoc}}">
+
+</audio>
+<img src="{% static "graph1.jpg" %}"  alt="graph">
+            <div class="date">
+             <p style="margin-left: 40px">{{ post.published_date }}</p>
+             <p>Operator: <font color=red>{{ post.operator }}</font></p>
+             <p>Agent: <font color=red>{{ post.agent }}</font></p>
+
+
+<p>Was the call answered before the 4th ring ?</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.ca4r }}</strong></font></p>
+             <p>Was an appropriate greeting used ?</p></p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.agu }}</strong></font></p>
+             <p>If you were placed on hold, did the agent ask for permission and wait for your reply?</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.aph }}</strong></font></p>
+             <p>If you were placed on hold, did the agent thank you for holding when returning to the call</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.tyh }}</strong></font></p>
+             <p>If you were placed on hold, were you on hold for more than 90 seconds? (Any call on hold for over 90 seconds will automatically be given a zero)</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.h90 }}</strong></font></p>
+             <p>Did the agent ask for your name and number and offer to call you back? (2 call attempt)</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.nncb }}</strong></font></p>
+             <p>If yes, did an agent call you back within 30 minutes? (If yes, the call will be given a 100%.  If no, the call will be given a zero.)</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.cb30 }}</strong></font></p>
+             <p>Did the agent ask or verify dates of arrival and departure including days of the week?</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.avdda }}</strong></font></p>
+             <p>Did the agent determine if the guest has stayed at the hotel before ?</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.asb }}</strong></font></p>
+             <p>Did the agent ask "what brings you to the area ?</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.wby }}</strong></font></p>
+             <p>Did the agent determine how many people will be traveling or how many rooms or beds would be needed ?</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.hmpb }}</strong></font></p>
+             <p>Did the agent describe items that make them unique in the marketplace before quoting a rate ? (N.I.C.E.)</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.uim }}</strong></font></p>
+             <p>Did the agent describe the classic amenities before quoting a rate ?</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.daqr }}</strong></font></p>
+             <p>Did the agent quote a rate or rates ?</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.qr }}</strong></font></p>
+             <p>Did the agent attempt to upsell by offering multiple room types or packages or clearly state that only one room type was available ?</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.us }}</strong></font></p>
+             <p>Did the agent ask to make the reservation immediately after quoting the rate or rates ? (Within 5 seconds of quoting last rate.)</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.sqr5 }}</strong></font></p>
+             <p>Did you feel like you had the agents undivided attention ?</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.ua }}</strong></font></p>
+             <p>Did the agents tone and attitude indicate a strong desire for your business ?</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.ta }}</strong></font></p>
+             <p>Did the agent obtain and use the callers name in conversation at least once before asking for the reservation ?</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.un }}</strong></font></p>
+             <p>Testing totals</p>
+             <p style="margin-left: 40px"><font color=red><strong>{{ post.impression }}</strong></font></p>
+
+            </div>
+        {% endif %}
+        <B>Comments and Suggestions</B>
+        <p><p style="margin-left: 40px">{{ post.comments_and_suggestions }}</p>
+    </div>
+{% endblock %}
